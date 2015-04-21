@@ -1,0 +1,17 @@
+body {
+    background-color: blue;
+    padding: 3px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    border-bottom: 3px solid #FFF8DC;
+    color: #ada691;
+    font-size: 30px;
+    text-shadow: -2px 2px 3px #000000;
+}
+
+p {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    font-size: 16px;
+}
