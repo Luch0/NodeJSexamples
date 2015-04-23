@@ -1,30 +1,5 @@
 var fs = require('fs');
 
-/*
-function start(response) {
-	console.log("Request handler 'start' was called.");
-	var body = 	'<html>'+
-					'<head>'+
-						'<meta http-equiv="Content-Type" '+ 'content="text/html; charset=UTF-8" />'+
-					'</head>'+
-					'<body>'+
-							'<p> Hello this is a paragraph for Homepage </p>' +
-					'</body>'+
-				'</html>';
-    response.writeHead(200, {"Content-Type": "text/html"});
-    response.write(body);
-    response.end();
-}
-*/
-
-/*
-function start(response) {
-	console.log("Request handler 'start' was called.");
-	response.writeHead(200, {"Content-Type": "text/html"});
-	fs.createReadStream("./homepage.html").pipe(response);
-}
-*/
-
 function start(response) {
 	console.log("Request handler 'start' was called.");
 	fs.readFile('./sites/homepage.html', function (err, html) {
@@ -40,7 +15,7 @@ function enterName(response) {
 	fs.readFile('./sites/enterName.html', function (err, html) {
 	    if (err) throw err;      
 	    response.writeHeader(200, {"Content-Type": "text/html"});  
-	    response.write(html);  
+	    response.write(html);
 	    response.end();  
 	});
 }
@@ -58,7 +33,6 @@ function otherSite(response) {
 //Handler for css files
 function style(response,request,pathname) {
 	console.log("Request handler 'style' was called.");
-	//var cssFileName = url.parse(request.url).pathname;
 	var cssFileName = pathname;
 	fs.readFile('./sites/stylesheets' + cssFileName, function (err, css) {
 	    if (err) throw err;      
@@ -68,8 +42,20 @@ function style(response,request,pathname) {
 	});
 }
 
+//Handler for javascript files
+function script(response,request,pathname) {
+	console.log("Request handler 'script' was called.");
+	var jsFileName = pathname;
+	fs.readFile('./sites/scripts' + jsFileName, function (err, js) {
+		if (err) throw err;
+		response.writeHeader(200, {"Content-Type": "text/javascript"});
+		response.write(js);
+		response.end();
+	});
+}
+
 exports.start = start;
 exports.enterName = enterName;
 exports.otherSite = otherSite;
-
 exports.style = style;
+exports.script = script;

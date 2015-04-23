@@ -7,14 +7,13 @@ function start(route, handle) {
 		console.log("Request for " + pathname + " received."); 
 		route(handle, pathname, response, request);
 
-		//console.log(handle);
-		// var dataEntered = "";
-		// request.on('data', function (chunk) {
-		// 	dataEntered += chunk;
-		// });
-		// request.on('end', function () {
-		//     console.log("Data: " + dataEntered);
-		// });
+		 var dataEntered = "";
+		 request.on('data', function (chunk) {
+		 	dataEntered += chunk;
+		 });
+		 request.on('end', function () {
+		     console.log("Data: " + dataEntered);
+		 });
 
 	}
   	http.createServer(onRequest).listen(8888);

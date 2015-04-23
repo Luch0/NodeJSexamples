@@ -15,3 +15,7 @@ p {
 	font-family: "Trebuchet MS", Verdana, sans-serif;
 	font-size: 16px;
 }
+
+#header {
+    text-align:center;
+}

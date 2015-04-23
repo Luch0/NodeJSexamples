@@ -4,7 +4,10 @@ function route(handle, pathname, response, request) {
 	console.log("About to route a request for " + pathname);
 
 	if(path.extname(pathname) === ".css"){
-		handle["/style.css"](response, request, pathname);
+		handle["/style"](response, request, pathname);
+	}
+	else if(path.extname(pathname) === ".js"){
+		handle["/script"](response, request, pathname);
 	}
 	else if(typeof handle[pathname] === 'function') {
 		//console.log(handle[pathname]); //[Function: style]

@@ -8,10 +8,10 @@ MongoClient.connect("mongodb://localhost:"+ port + "/" + database, function(err,
 	else console.log("Could not connect to database " + database);
 
 	//create new collection in mongoDB database
-	db.createCollection("testCollection", function(err, collection) {});
+	db.createCollection("testNames", function(err, collection) {});
 
 	//insert documents into collection in database
-	var collectionTest = db.collection("testCollection");
+	var collectionTest = db.collection("testNames");
 	var doc = {"name":"Luis"};
 	collectionTest.insert(doc);
 

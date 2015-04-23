@@ -7,7 +7,7 @@ handle["/"] = requestHandlers.start;
 handle["/start"] = requestHandlers.start;
 handle["/enterName"] = requestHandlers.enterName; 
 handle["/otherSite"] = requestHandlers.otherSite;
-
-handle["/style.css"] = requestHandlers.style;
+handle["/style"] = requestHandlers.style;
+handle["/script"] = requestHandlers.script;
 
 server.start(router.route, handle);

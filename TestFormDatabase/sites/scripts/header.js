@@ -1,0 +1,1 @@
+document.write('\ <div id="header"> \ <a href="/">Home</a> \ | \ <a href="/enterName">Enter Name</a> \ | \ <a href="otherSite">Other Site</a> \ </div>');
